@@ -8,7 +8,7 @@ html, body {
 
 /*Func*/
 
-.multi-level, .sub-item ul, .nav input[type="checkbox"] {
+.sub-item ul, .multi-level input[type="checkbox"] {
     display: none;
 }
 #menu:checked ~ .multi-level, .sub-item input:checked ~ ul {
@@ -62,7 +62,7 @@ label {
     background-color: #F44336;
 }
 
-.nav ul, .nav li, label {
+.multi-level ul, .multi-level li, label {
     line-height: 50px;
     margin: 0;
     padding: 0 2em;
@@ -75,7 +75,7 @@ label {
 .item ul {
     padding: 0 0.25em;
 }
-.nav li a {
+.multi-level li a {
     line-height: 50px;
     margin: 0;
     padding: 0 4em;

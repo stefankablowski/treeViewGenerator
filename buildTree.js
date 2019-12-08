@@ -1,28 +1,22 @@
-let createTreeHTML = () => {
-    let parsed = null;
+let createTreeHTML = (tree) => {
+    let parsed = parseTree(tree);
     return `<div class="multi-level">${parsed}</div>`
 }
 
-let getListItemSnippet = (content) => {
-    return ``
-}
 
-let getLeafSnippet = (content)=>{
-
-}
 let count = 0;
 let getCount = () => {
     return count++;
 }
 
-let parse = (tree) => {
+let parseTree = (tree) => {
     if(tree.children !== null){
         let subItems = null;
-        children.forEach(child => {
-            subItems+= parse(child);
+        tree.children.forEach(child => {
+            subItems+= parseTree(child);
         });
         let currentNumber = getCount();
-        subItems = `
+        return `
         <div class="sub-item">
             <input type="checkbox" id="${currentNumber}"/>
             <img src="images/Arrow.png" class="arrow"><label for="${currentNumber}">${tree.caption}</label>
@@ -37,15 +31,6 @@ let parse = (tree) => {
     }
 }
 
-
-
-class TreeNode {
-    //Possible types: leaf, branch
-    constructor(nodeType, subNodes = null) {
-        this.nodeType = nodeType;
-        this.subNodes = subNodes;
-    }
-}
 
 let sampleTree = {
     caption: "a",
@@ -67,7 +52,8 @@ let sampleTree = {
             caption: "a3",
             children: [
                 {
-                    caption: "element inside element inside el1"
+                    caption: "element inside element inside el1",
+                    children: null
                 }
             ]
         }
@@ -75,3 +61,5 @@ let sampleTree = {
 
     ]
 }
+
+console.log(createTreeHTML(sampleTree));
