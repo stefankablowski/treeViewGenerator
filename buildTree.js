@@ -11,7 +11,7 @@ let getCount = () => {
 
 let parseTree = (tree) => {
     if(tree.children !== null){
-        let subItems = null;
+        let subItems = '';
         tree.children.forEach(child => {
             subItems+= parseTree(child);
         });
@@ -33,26 +33,26 @@ let parseTree = (tree) => {
 
 
 let sampleTree = {
-    caption: "a",
+    caption: "FB 01 Humanwissenschaften",
     children: [
         {
-            caption: "a1",
+            caption: "Tutorenschulung - Dr. Vogelsang, Güldenpfennig",
             children: null
         },
         {
-            caption: "a2",
+            caption: "I. Institut für Erziehungswissenschaft",
             children: [
                 {
-                    caption: "element inside element inside el1",
+                    caption: "Lehrer*innen und Lehrer*innenhandeln",
                     children: null
                 }
             ]
         },
         {
-            caption: "a3",
+            caption: "II. ",
             children: [
                 {
-                    caption: "element inside element inside el1",
+                    caption: "Percussion Ensemble - Pyras",
                     children: null
                 }
             ]
