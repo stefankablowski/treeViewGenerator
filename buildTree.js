@@ -11,6 +11,7 @@ let getCount = () => {
 
 let parseTree = (tree) => {
     if (tree.children !== null) {
+        // parse children
         let subItems = '';
         tree.children.forEach(child => {
             subItems += parseTree(child);
@@ -19,7 +20,7 @@ let parseTree = (tree) => {
         return `
         <div class="sub-item">
             <input type="checkbox" id="${currentNumber}"/>
-            <label for="${currentNumber}">${tree.caption}<img src="img/arrow1.svg" class="arrow"></label>
+            <label for="${currentNumber}">${tree.caption}</label>
             
             <ul>
             ${subItems}
@@ -27,7 +28,14 @@ let parseTree = (tree) => {
         </div>
         `
     } else {
-        return `<li><a href="#">${tree.caption}</a></li>`
+        // only node self
+        if(tree.link !== null){
+            return `<li>${tree.caption}<a href="${tree.link}"><img src="img/arrow1.svg" class="arrow"></a></li>`;
+        } else {
+            return `<li>${tree.caption}</li>`;
+        }
+        
+    
     }
 }
 
@@ -38,7 +46,7 @@ let sampleTree = {
     children: [
         {
             caption: "Tutorenschulung - Dr. Vogelsang, Güldenpfennig",
-            link: 'www.google.com',
+            link: 'https://www.google.com',
             children: null
         },
         {
