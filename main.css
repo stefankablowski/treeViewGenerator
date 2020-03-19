@@ -15,79 +15,62 @@ html, body {
     display: block;
 }
 
-/*Arrow*/
-
-.arrow {
-    width: 12px;
-    height: 12px;
-    vertical-align: middle;
-    float: left;
-    z-index: 0;
-    margin: 17px 1em 0 2em;
-}
-.item input + .arrow {
-    transform: rotate(-90deg);
-    transition: 0.1s;
-}
-.item input:checked + .arrow {
-    transform: rotate(0deg);
-    transition: 0.1s;
-}
-
-
-
 /*Styles*/
 
 label:hover {
     cursor: pointer;
 }
+
 label {
     width: 100%;
     display: block;
-    z-index: 3;
     position: relative;
 }
-.nav {
-    width: 100%;
-    background-color: white;
-    overflow-x: hidden;
-    border-bottom: 1px solid #CFD8DC;
-}
 
-#nav-icon {
-    font-size: 28px;
-    line-height: 50px;
-    padding-left: 1em;
-    color: white;
-    background-color: #F44336;
-}
 
 .multi-level ul, .multi-level li, label {
-    line-height: 50px;
     margin: 0;
-    padding: 0 2em;
     list-style: none;
     text-decoration: none;
-    color: #90A4AE;
     font-weight: 100;
     width: 100%;
 }
-.item ul {
-    padding: 0 0.25em;
-}
+
 .multi-level li a {
-    line-height: 50px;
     margin: 0;
-    padding: 0 4em;
     list-style: none;
     text-decoration: none;
-    color: #90A4AE;
     font-weight: 100;
 }
 
+.sub-item{
+    background-color: rgba(154, 12, 72,1);
+}
 
+.sub-item .sub-item{
+    background-color: rgba(202, 70,126,1);
+}
 
+.sub-item .sub-item .sub-item{
+    background-color: rgba(190, 30, 97,1);
+}
 
+.sub-item .sub-item .sub-item .sub-item{
+    background-color: rgba(125,  0, 53,1);
+}
+
+ul{
+    margin-block-start: 0em;
+    margin-block-end: 0em;
+    padding-inline-start: 0px;
+    margin-inline-start: 10px;
+}
+
+.arrow{
+    margin: 0px;
+    padding: 0px;
+    width: 1em;
+}
 
 
 

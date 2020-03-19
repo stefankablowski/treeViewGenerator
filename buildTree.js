@@ -10,23 +10,23 @@ let getCount = () => {
 }
 
 let parseTree = (tree) => {
-    if(tree.children !== null){
+    if (tree.children !== null) {
         let subItems = '';
         tree.children.forEach(child => {
-            subItems+= parseTree(child);
+            subItems += parseTree(child);
         });
         let currentNumber = getCount();
         return `
         <div class="sub-item">
             <input type="checkbox" id="${currentNumber}"/>
-            <img src="images/Arrow.png" class="arrow"><label for="${currentNumber}">${tree.caption}</label>
+            <label for="${currentNumber}">${tree.caption}<img src="img/arrow1.svg" class="arrow"></label>
             
             <ul>
             ${subItems}
             </ul>
         </div>
         `
-    }else{
+    } else {
         return `<li><a href="#">${tree.caption}</a></li>`
     }
 }
@@ -34,26 +34,44 @@ let parseTree = (tree) => {
 
 let sampleTree = {
     caption: "FB 01 Humanwissenschaften",
+    link: null,
     children: [
         {
             caption: "Tutorenschulung - Dr. Vogelsang, Güldenpfennig",
+            link: 'www.google.com',
             children: null
         },
         {
             caption: "I. Institut für Erziehungswissenschaft",
+            link: null,
             children: [
                 {
                     caption: "Lehrer*innen und Lehrer*innenhandeln",
+                    link: null,
                     children: null
                 }
             ]
         },
         {
-            caption: "II. ",
+            caption: "II. Institut für Intelligenz",
+            link: null,
             children: [
                 {
-                    caption: "Percussion Ensemble - Pyras",
-                    children: null
+                    caption: "Verpeilte Systeme",
+                    link: null,
+                    children: [
+                        {
+                            caption: "Blockveranstaltung Unorganisiertheit in der praktischen Anwendung",
+                            link: null,
+                            children: [
+                                {
+                                    caption: "Anmeldung",
+                                    link: null,
+                                    children: null
+                                }
+                            ]
+                        }
+                    ]
                 }
             ]
         }
@@ -63,3 +81,4 @@ let sampleTree = {
 }
 
 console.log(createTreeHTML(sampleTree));
+document.querySelector('#root').innerHTML = createTreeHTML(sampleTree);
